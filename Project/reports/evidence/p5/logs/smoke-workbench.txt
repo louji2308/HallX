@@ -1,0 +1,2 @@
+﻿shell ok
+EXIT=0

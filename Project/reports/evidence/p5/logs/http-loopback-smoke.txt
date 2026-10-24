@@ -1,0 +1,2 @@
+﻿loopback http ok: 127.0.0.1:62226 / =200, health=200, missing=404; external=0
+EXIT=0

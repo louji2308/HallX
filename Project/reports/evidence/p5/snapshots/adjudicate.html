@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'; img-src 'none'; font-src 'none'; connect-src 'none';"><title>Adjudicate — HallX-Local Reviewer (fixture)</title><style>
+:root {
+  --color-ink-black: #17191c;
+  --color-paper-white: #ffffff;
+  --color-mist-gray: #f2f2f3;
+  --color-fog-white: #fafafb;
+  --color-slate-gray: #777b86;
+  --color-ash-gray: #979799;
+  --color-blush-peach: #fbe1d1;
+  --color-sienna-brown: #5d2a1a;
+  --page-max-width: 1200px;
+  --font-signifier: "Source Serif 4", Georgia, ui-serif, serif;
+  --font-sohne: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--color-paper-white);
+  color: var(--color-ink-black);
+  font-family: var(--font-sohne);
+  font-size: 17px;
+  line-height: 1.35;
+}
+a { color: var(--color-ink-black); text-underline-offset: 0.2em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible {
+  outline: 3px solid var(--color-ink-black);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--color-blush-peach);
+}
+h1, h2, h3 {
+  font-family: var(--font-signifier);
+  font-weight: 400;
+  margin: 0;
+}
+h1 { font-size: 44px; line-height: 1.3; letter-spacing: -0.66px; }
+h2 { font-size: 26px; line-height: 1.18; letter-spacing: -0.23px; }
+h3 { font-size: 22px; line-height: 1.5; }
+p { margin: 0 0 12px; }
+.shell { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -80px;
+  z-index: 20;
+  padding: 12px 20px;
+  border-radius: 9999px;
+  background: var(--color-ink-black);
+  color: var(--color-paper-white);
+}
+.skip-link:focus { top: 16px; }
+.topbar { padding: 20px 0 12px; }
+.topbar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand { font-family: var(--font-signifier); font-size: 22px; }
+.role-chip {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 10px;
+  border: 1px solid var(--color-ink-black);
+  border-radius: 9999px;
+  font-family: var(--font-sohne);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  vertical-align: middle;
+}
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav a {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  text-decoration: none;
+}
+nav a:hover { background: var(--color-mist-gray); }
+nav a[aria-current="page"] {
+  border: 1px solid var(--color-ink-black);
+  background: var(--color-mist-gray);
+}
+.fixture-banner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: baseline;
+  margin: 8px 0 24px;
+  padding: 16px 20px;
+  border-radius: 24px;
+  background: var(--color-blush-peach);
+  color: var(--color-sienna-brown);
+}
+.fixture-banner strong { letter-spacing: 0.04em; }
+.fixture-banner span { font-size: 15px; }
+main { display: block; padding-bottom: 64px; }
+.page-head { margin: 8px 0 24px; }
+.lede { max-width: 72ch; color: var(--color-slate-gray); font-size: 18px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.card {
+  padding: 24px;
+  border-radius: 24px;
+  background: var(--color-mist-gray);
+}
+.card-white {
+  padding: 24px;
+  border: 1px solid var(--color-mist-gray);
+  border-radius: 24px;
+  background: var(--color-paper-white);
+}
+.card h2 { margin-bottom: 12px; }
+.card h3 { margin-bottom: 8px; }
+.stack > * + * { margin-top: 24px; }
+.muted { color: var(--color-slate-gray); }
+.meta { color: var(--color-slate-gray); font-size: 15px; }
+.state-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.state-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid var(--color-ink-black);
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+.fixture-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px dashed var(--color-ink-black);
+  border-radius: 9999px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+.button {
+  display: inline-block;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid var(--color-ink-black);
+  border-radius: 9999px;
+  background: var(--color-ink-black);
+  color: var(--color-paper-white);
+  font: inherit;
+}
+.button[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.button-ghost {
+  display: inline-block;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid var(--color-ink-black);
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--color-ink-black);
+  font: inherit;
+  text-decoration: none;
+}
+label { display: block; margin: 16px 0 6px; font-weight: 500; }
+input, textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--color-ash-gray);
+  border-radius: 16px;
+  background: var(--color-paper-white);
+  color: var(--color-ink-black);
+  font: inherit;
+}
+input[disabled], textarea[disabled] { color: var(--color-slate-gray); }
+.loading-preview {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border: 1px dashed var(--color-ash-gray);
+  border-radius: 16px;
+  color: var(--color-slate-gray);
+  font-size: 15px;
+}
+.banner-note { margin-top: 12px; font-size: 15px; }
+.table-wrap { overflow-x: auto; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-paper-white);
+  border-radius: 16px;
+}
+caption {
+  padding: 8px 0;
+  color: var(--color-slate-gray);
+  font-size: 15px;
+  text-align: left;
+}
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid var(--color-mist-gray);
+  text-align: left;
+  vertical-align: top;
+}
+th { font-size: 14px; letter-spacing: 0.04em; }
+blockquote {
+  margin: 0;
+  padding-left: 12px;
+  border-left: 3px solid var(--color-ink-black);
+}
+.list { margin: 0; padding-left: 20px; }
+.list li + li { margin-top: 8px; }
+.state-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.state-legend li {
+  padding: 12px;
+  border: 1px solid var(--color-mist-gray);
+  border-radius: 16px;
+  background: var(--color-paper-white);
+}
+.state-legend strong { display: block; font-size: 14px; letter-spacing: 0.05em; }
+.state-legend span { color: var(--color-slate-gray); font-size: 14px; }
+.offset-note {
+  margin-top: 16px;
+  padding: 16px;
+  border: 2px dashed var(--color-ink-black);
+  border-radius: 16px;
+}
+.unsupported {
+  border: 2px solid var(--color-ink-black);
+  background: var(--color-fog-white);
+}
+.error-card {
+  border: 2px solid var(--color-ink-black);
+  background: var(--color-fog-white);
+}
+.error-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.chunk-text {
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--color-paper-white);
+  font-family: var(--font-signifier);
+  font-size: 20px;
+  line-height: 1.5;
+}
+.footer {
+  padding: 24px 0 40px;
+  border-top: 1px solid var(--color-mist-gray);
+  color: var(--color-slate-gray);
+  font-size: 14px;
+}
+.breadcrumb { margin-bottom: 12px; font-size: 15px; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+</style></head><body data-fixture="true"><a class="skip-link" href="#main">Skip to main content</a><header class="topbar"><div class="shell topbar-inner"><div class="brand">HallX-Local<span class="role-chip">REVIEWER MODE · FIXTURE</span></div><nav aria-label="Reviewer sections"><ul><li><a data-testid="nav-adjudicate" href="/" aria-current="page">Adjudicate</a></li><li><a data-testid="nav-documents" href="/documents">Documents</a></li><li><a data-testid="nav-runs" href="/runs">Evidence Runs</a></li><li><a data-testid="nav-escalations" href="/escalations">Escalations</a></li></ul></nav></div></header><div class="shell"><div class="fixture-banner" data-testid="fixture-banner" role="status"><strong>FIXTURE DATA — NOT A VERIFIED RUN</strong><span>No live model, retrieval, ACL check, or PDF highlight was executed for these pages.</span></div></div><main id="main" class="shell" tabindex="-1"><section class="page-head"><h1>Adjudicate</h1><p class="lede">Ask a question over an authorized scope and inspect the server-owned final state. Submission is disabled in this fixture shell; the result below is a labeled fixture record, not a run you started.</p></section><div class="grid"><section class="card" aria-labelledby="question-title"><h2 id="question-title">Question form</h2><label for="scope">Document scope</label><input id="scope" name="scope" value="Helios Remote Access Policy v2.0 (synthetic fixture)" disabled><label for="question">Question</label><textarea id="question" name="question" rows="4" disabled>How must remote production access be authenticated, and when do contractor sessions expire?</textarea><p class="banner-note"><button class="button" type="button" disabled>Run adjudication — disabled in fixture</button></p><div class="loading-preview" data-testid="loading-disabled" role="status" aria-disabled="true">Loading state preview — generation is disabled and no request will be sent.</div></section><section class="card" data-testid="empty-state" aria-labelledby="empty-title"><h2 id="empty-title">Empty state</h2><p>No submission is attached to this form. Nothing is queued, loading, or running.</p><p class="muted">Use the fixture result below to review the final-state surface, or open Evidence Runs for the labeled fixture set.</p></section></div><div class="stack"><section class="card-white" aria-labelledby="result-title"><h2 id="result-title">Fixture result — latest seeded run</h2><div class="state-line"><span class="state-badge" data-testid="evidence-state" data-evidence-state="SUPPORTED">SUPPORTED</span><span class="fixture-badge">FIXTURE</span></div><p class="meta">Run run-fixture-supported · 2026-10-24T09:02:00Z · COMPLETE</p><p><strong>Question:</strong> How must remote production access be authenticated, and when do contractor sessions expire?</p><p><strong>Scope:</strong> Helios Remote Access Policy v2.0 (synthetic fixture)</p><p>Remote production access requires multi-factor authentication, and contractor sessions expire after 15 minutes of inactivity.</p><div class="table-wrap"><table><caption>Validated fixture claim records only. No unchecked candidate output is rendered here.</caption><thead><tr><th scope="col">Claim</th><th scope="col">Displayed claim</th><th scope="col">Exact fixture quote</th><th scope="col">Numeric check</th><th scope="col">Source</th></tr></thead><tbody><tr><td>claim-fixture-mfa</td><td>Remote production access requires multi-factor authentication.<br><span class="meta">SUPPORTED</span></td><td><blockquote>Remote access to production systems requires multi-factor authentication.</blockquote></td><td>FIXTURE PASS — no numeric value in this claim</td><td><a href="/source/chunk-access-v2-mfa">Inspect cited chunk</a></td></tr><tr><td>claim-fixture-expiry</td><td>Contractor sessions expire after 15 minutes of inactivity.<br><span class="meta">SUPPORTED</span></td><td><blockquote>Contractor sessions expire after 15 minutes of inactivity.</blockquote></td><td>FIXTURE PASS — 15 minutes matches the synthetic source</td><td><a href="/source/chunk-access-v2-mfa">Inspect cited chunk</a></td></tr></tbody></table></div><p class="banner-note muted">Entailment and numeric results are fixture labels, not executed checks. No raw candidate output is exposed in reviewer mode.</p><div class="grid"><div class="card"><h3>Diagnostic</h3><p>Both fixture claims cite one active synthetic source. Offsets appear only inside the Source Inspector and are labeled fixture offsets.</p></div><div class="card"><h3>Recommended action</h3><p>No reviewer action is required in this fixture preview.</p></div></div><p class="muted">Raw model output, debug traces, and training internals are auditor-only and withheld from reviewer mode.</p><p class="banner-note"><a class="button-ghost" href="/runs/run-fixture-supported">Open Evidence Run Detail</a> <a class="button-ghost" href="/source/chunk-access-v2-mfa">Open Source Inspector</a></p></section><section class="card" aria-labelledby="state-legend-title"><h2 id="state-legend-title">Five-state reference (fixture legend)</h2><ul class="state-legend"><li><strong>SUPPORTED</strong><span>All required premises are established by active, authorized sources.</span></li><li><strong>PARTIAL</strong><span>Some premises are supported; at least one explicit premise is missing.</span></li><li><strong>MISSING</strong><span>No sufficient source-backed answer is available; no factual claims.</span></li><li><strong>CONFLICTED</strong><span>Two active sources disagree; both spans require human review.</span></li><li><strong>STALE</strong><span>Only an expired or superseded source matches; stale text is not current support.</span></li></ul></section></div></main><footer class="footer"><div class="shell">Local-only fixture shell. No network requests, telemetry, external fonts, or CDN assets. Business rules stay in application services, not in this UI.</div></footer></body></html>
