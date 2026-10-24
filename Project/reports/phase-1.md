@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-24
 **Contract:** `reports/contracts/P1-contracts-and-deterministic-core.md` v1 (frozen)
-**Status:** code verified; repository commit blocked
+**Status:** verified; committed and pushed to `origin/main`
 
 ## Objective
 
@@ -59,9 +59,14 @@ Additional invariant tests cover schema offset rejection, source-map mapping/fai
 - `configs/proof_envelope_schema.json`
   SHA-256 `72e2922bac81994b7ed0af3647e1ede94bef7040250eb5a87daa6e9ee0418700`
 
+## Repository
+
+- Dedicated repository: `C:\Users\LOUJAN B\HallX`, branch `main`, remote `https://github.com/louji2308/HallX.git`.
+- Phase 1 commit: `09e3205` (`phase 1: contracts and deterministic evidence core`).
+- Pushed to `origin/main`; no other repository was touched.
+
 ## Not proven / blocked
 
-- `COMMIT` is blocked: `git rev-parse --show-toplevel` returns `C:/Users/LOUJAN B`, the enclosing home directory. No dedicated HallX repository exists. Nothing was staged or committed.
 - Entailment is an interface plus test double only. A real independent NLI/entailment verifier is not part of Phase 1 and must not be claimed as measured.
 - No API, browser, ingestion, retrieval, SGLang, or UI work was performed or claimed.
 - No performance, accuracy, or judge-score metrics were measured.
@@ -70,19 +75,20 @@ Additional invariant tests cover schema offset rejection, source-map mapping/fai
 
 ```text
 PHASE: P1 contracts and deterministic core
-STATUS: partial
+STATUS: verified
 CONTRACT: reports/contracts/P1-contracts-and-deterministic-core.md v1
-CHANGED: pyproject.toml, uv.lock, .gitignore, configs/track_manifest.yaml, configs/proof_envelope_schema.json, scripts/export_generation_schema.py, src/hallx/*, tests/*, reports/contracts/P1-contracts-and-deterministic-core.md, reports/phase-1.md, IMPLEMENTATION_STATUS.md
-COMMIT: blocked — git root is the enclosing home directory
+CHANGED: AGENTS.md, pyproject.toml, uv.lock, .gitignore, configs/track_manifest.yaml, configs/proof_envelope_schema.json, scripts/export_generation_schema.py, src/hallx/*, tests/*, reports/contracts/P1-contracts-and-deterministic-core.md, reports/phase-1.md, IMPLEMENTATION_STATUS.md
+COMMIT: 09e3205 phase 1: contracts and deterministic evidence core; pushed to origin/main
 COMMANDS:
 - uv lock -> exit 0: resolved 12 packages
 - uv sync --frozen -> exit 0: checked 12 packages
 - uv run pytest tests/unit -q -> exit 0: 35 passed
 - uv run pytest -q -> exit 0: 35 passed
 - uv run python -c "from hallx.models import GenerationProofEnvelope; print('import-ok')" -> exit 0: import-ok
+- git push -u origin main -> exit 0: main -> main
 TESTS: 35 passed/0 failed/0 skipped; invariants: test_schema.py::test_generation_schema_has_no_offsets, test_span.py::test_unique_quote_resolves, test_state.py::test_model_state_cannot_override_server_state, test_canonical.py::test_source_map_span_and_failure
 BROWSER: not applicable (no UI in Phase 1)
 ARTIFACTS: reports/evidence/p1/logs/*; configs/proof_envelope_schema.json sha256=72e2922bac81994b7ed0af3647e1ede94bef7040250eb5a87daa6e9ee0418700
-BLOCKED/NOT PROVEN: dedicated git repository absent; real entailment verifier not wired; no GPU/server/e2e
-NEXT: Phase 2 (corpus registry, versions, and ACL policy) code unblocked; commit remains blocked until a dedicated repo is chosen
+BLOCKED/NOT PROVEN: real entailment verifier not wired; no GPU/server/e2e
+NEXT: Phase 2 (corpus registry, versions, and ACL policy) unblocked
 ```

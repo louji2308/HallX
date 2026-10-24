@@ -1,14 +1,14 @@
 # HallX-Local implementation status
 
 **Last updated:** 2026-10-24
-**Repo root:** `C:\Users\LOUJAN B\HallX\Project`
-**Git:** enclosing home-directory repo (`C:/Users/LOUJAN B`); no dedicated HallX repo. No commits made.
+**Repo root:** `C:\Users\LOUJAN B\HallX`
+**Git:** dedicated repository; branch `main`; remote `https://github.com/louji2308/HallX.git`; Phase 1 commit `09e3205`, pushed.
 
 ## Phase status
 
 | Phase | Status | Evidence / note |
 |---|---|---|
-| P0 Repository and environment audit | `blocked` | Environment inventory complete; dedicated repository not established, so the Phase 0 exit gate is not met. |
+| P0 Repository and environment audit | `implemented` | Environment inventory and dedicated repository isolation complete; formal `reports/phase-0.md` not written yet. |
 | P1 Contracts and deterministic core | `tested` | `reports/phase-1.md`; 35 unit tests pass; generation schema frozen. |
 | P2 Corpus registry, versions, and ACL policy | `planned` | Not started. |
 | P3 Ingestion, canonical source maps, and ACL-first retrieval | `planned` | Not started. |
@@ -44,8 +44,7 @@ Environment: Python 3.11.9, `uv` 0.12.3, pydantic 2.14.1, pytest 8.4.2, Windows.
 
 ## Known failures / blockers
 
-- `COMMIT` is `blocked`: `git rev-parse --show-toplevel` is the enclosing home directory. Do not stage or commit HallX into it. A dedicated HallX repo decision is required.
-- Real entailment scoring is not implemented and is not claimed. Phase 1 proves deterministic plumbing with a test double.
+- No known test failures. Real entailment scoring is not implemented and is not claimed. Phase 1 proves deterministic plumbing with a test double.
 - No API, UI, retrieval, ingestion, SGLang, training, evaluation, latency, accuracy, or judge-score result exists.
 - Target pins are unchanged: SGLang 0.5.22, CuratorKIT 1.0.0, AlignTune 0.1.28, AuditKIT 1.0.0, Qwen3-4B-Instruct-2507.
 
