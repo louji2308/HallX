@@ -1,0 +1,213 @@
+{
+  "$defs": {
+    "AbstentionAndConflictDiagnosis": {
+      "additionalProperties": false,
+      "properties": {
+        "missing_information": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Missing Information",
+          "type": "array"
+        },
+        "rejected_distractor_chunk_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Rejected Distractor Chunk Ids",
+          "type": "array"
+        },
+        "conflicting_chunk_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Conflicting Chunk Ids",
+          "type": "array"
+        },
+        "stale_chunk_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Stale Chunk Ids",
+          "type": "array"
+        },
+        "recommended_human_action": {
+          "title": "Recommended Human Action",
+          "type": "string"
+        }
+      },
+      "required": [
+        "recommended_human_action"
+      ],
+      "title": "AbstentionAndConflictDiagnosis",
+      "type": "object"
+    },
+    "ClaimSupportStatus": {
+      "enum": [
+        "SUPPORTED",
+        "PARTIAL"
+      ],
+      "title": "ClaimSupportStatus",
+      "type": "string"
+    },
+    "EvidenceState": {
+      "enum": [
+        "SUPPORTED",
+        "PARTIAL",
+        "MISSING",
+        "CONFLICTED",
+        "STALE"
+      ],
+      "title": "EvidenceState",
+      "type": "string"
+    },
+    "GenerationChunkTriage": {
+      "additionalProperties": false,
+      "properties": {
+        "chunk_id": {
+          "minLength": 1,
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "doc_id": {
+          "minLength": 1,
+          "title": "Doc Id",
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "title": "Version",
+          "type": "string"
+        },
+        "triage_status": {
+          "$ref": "#/$defs/TriageStatus"
+        },
+        "triage_reason": {
+          "title": "Triage Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "chunk_id",
+        "doc_id",
+        "version",
+        "triage_status",
+        "triage_reason"
+      ],
+      "title": "GenerationChunkTriage",
+      "type": "object"
+    },
+    "GenerationClaim": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_text": {
+          "minLength": 1,
+          "title": "Claim Text",
+          "type": "string"
+        },
+        "support_status": {
+          "$ref": "#/$defs/ClaimSupportStatus"
+        },
+        "chunk_id": {
+          "minLength": 1,
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "doc_id": {
+          "minLength": 1,
+          "title": "Doc Id",
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "title": "Version",
+          "type": "string"
+        },
+        "exact_quote": {
+          "minLength": 1,
+          "title": "Exact Quote",
+          "type": "string"
+        },
+        "numeric_values": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Numeric Values",
+          "type": "array"
+        },
+        "claim_to_quote_rationale": {
+          "title": "Claim To Quote Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "claim_text",
+        "support_status",
+        "chunk_id",
+        "doc_id",
+        "version",
+        "exact_quote",
+        "claim_to_quote_rationale"
+      ],
+      "title": "GenerationClaim",
+      "type": "object"
+    },
+    "TriageStatus": {
+      "enum": [
+        "RELEVANT_ACTIVE",
+        "DISTRACTOR_IRRELEVANT",
+        "SUPERSEDED_STALE",
+        "RESTRICTED_ACL",
+        "ADVERSARIAL_IGNORED"
+      ],
+      "title": "TriageStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "chunk_triage": {
+      "items": {
+        "$ref": "#/$defs/GenerationChunkTriage"
+      },
+      "title": "Chunk Triage",
+      "type": "array"
+    },
+    "evidence_state": {
+      "$ref": "#/$defs/EvidenceState"
+    },
+    "answer_summary": {
+      "title": "Answer Summary",
+      "type": "string"
+    },
+    "claims": {
+      "items": {
+        "$ref": "#/$defs/GenerationClaim"
+      },
+      "title": "Claims",
+      "type": "array"
+    },
+    "abstention_and_conflict_diagnosis": {
+      "$ref": "#/$defs/AbstentionAndConflictDiagnosis"
+    },
+    "human_review_required": {
+      "title": "Human Review Required",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "chunk_triage",
+    "evidence_state",
+    "answer_summary",
+    "claims",
+    "abstention_and_conflict_diagnosis",
+    "human_review_required"
+  ],
+  "title": "GenerationProofEnvelope",
+  "type": "object"
+}

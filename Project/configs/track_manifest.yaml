@@ -1,0 +1,30 @@
+# HallX-Local track manifest
+# Phase 1 static configuration. Runtime enforcement arrives in later phases.
+track: "Syntax Error 2026 Local LLM Track"
+problem_statement: 3
+problem_statement_title: "Grounded answers and fewer hallucinations"
+product: "HallX-Local"
+package: "hallx"
+canonicalization_version: "nfkc-ws-v1"
+serving:
+  host: "127.0.0.1"
+  port: 30000
+  engine: "SGLang"
+  engine_pin: "0.5.22"
+  model: "Qwen/Qwen3-4B-Instruct-2507"
+toolchain:
+  curatorkit: "1.0.0"
+  aligntune: "0.1.28"
+  auditkit: "1.0.0"
+licenses:
+  sglang: "Apache-2.0"
+  curatorkit: "LSAL v1.1 (source-available, non-commercial)"
+  aligntune: "MIT (third-party components separate)"
+  auditkit: "LSAL v1.2 (source-available, non-commercial)"
+  model: "Apache-2.0"
+evidence_states:
+  - SUPPORTED
+  - PARTIAL
+  - MISSING
+  - CONFLICTED
+  - STALE
