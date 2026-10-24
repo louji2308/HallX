@@ -1,0 +1,5 @@
+﻿timestamp: 2026-10-24T18:58:45.9694045+05:30
+command: uv run ruff check src/hallx/corpus tests/support_corpus.py tests/unit/test_corpus_audit.py tests/unit/test_corpus_conflicts.py tests/unit/test_corpus_migrations.py tests/unit/test_corpus_snapshot.py tests/unit/test_corpus_splits.py tests/unit/test_corpus_versions.py tests/security
+worktree: dirty; HEAD 28dff15d7e14c5689e82d128fd8954d4f5dafc34
+All checks passed!
+exit_code: 0

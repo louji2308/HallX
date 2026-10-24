@@ -1,0 +1,5 @@
+﻿timestamp: 2026-10-24T18:59:21.5566269+05:30
+command: Select-String on Phase 2 evidence, reports/phase-2.md, and IMPLEMENTATION_STATUS.md
+scope: excludes sentinel-scan.txt itself
+matches: 0
+exit_code: 0

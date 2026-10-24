@@ -1,0 +1,6 @@
+﻿timestamp: 2026-10-24T18:45:51.4196909+05:30
+command: sqlite-version
+commit: 28dff15d7e14c5689e82d128fd8954d4f5dafc34
+3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]
+3.45.1
+exit_code: 0
