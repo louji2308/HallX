@@ -1,0 +1,8 @@
+timestamp: 2026-10-24T22:18:57+05:30
+commit: a88e484
+cwd: C:\Users\LOUJAN B\HallX\Project
+command: uv run pytest tests/unit -q -k "curation"
+exit: 0
+output:
+...............................                                          [100%]
+31 passed, 169 deselected in 1.91s

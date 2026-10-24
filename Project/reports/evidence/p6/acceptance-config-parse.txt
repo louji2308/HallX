@@ -1,0 +1,7 @@
+timestamp: 2026-10-24T22:18:57+05:30
+commit: a88e484
+cwd: C:\Users\LOUJAN B\HallX\Project
+command: uv run python -c "import json; from pathlib import Path; [json.loads(Path(f'configs/curation/train-{n}.json').read_text()) for n in ('qa','cot','adversarial-qa','adversarial-preference','grpo')]; print('configs parse')"
+exit: 0
+output:
+configs parse

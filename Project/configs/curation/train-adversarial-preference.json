@@ -1,0 +1,19 @@
+{
+  "run_id": "fixture-curation-adversarial-preference-v1",
+  "mode": "fixture",
+  "task": "adversarial_preference",
+  "snapshot_id": "snap-fixture-train-v1",
+  "split_name": "train",
+  "generator_endpoint": "http://127.0.0.1:30000",
+  "judge_endpoint": "http://127.0.0.1:30001",
+  "generator_model": "Qwen/Qwen3-4B-Instruct-2507",
+  "judge_model": "fixture/independent-judge",
+  "max_examples": 8,
+  "max_tokens": 4096,
+  "seed": 20261024,
+  "expected_examples": 8,
+  "expected_total_tokens": 4096,
+  "token_tolerance": 0.02,
+  "tokenizer_id": "fixture/tokenizer-not-loaded-v1",
+  "output_path": "data/curation/fixture/train-adversarial-preference.jsonl"
+}
