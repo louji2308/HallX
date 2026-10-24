@@ -1,0 +1,10 @@
+﻿# Scope check (cwd: Project; git root: HallX)
+tracked modifications (git diff --name-only):
+(none)
+
+P3B new paths (git status --porcelain):
+?? Project/reports/evidence/p3/retrieval/
+?? Project/src/hallx/retrieval/
+?? Project/tests/security/test_retrieval_acl.py
+?? Project/tests/unit/test_retrieval.py
+?? Project/tests/unit/test_retrieval_sparse.py

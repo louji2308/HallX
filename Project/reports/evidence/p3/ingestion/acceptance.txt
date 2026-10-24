@@ -1,0 +1,50 @@
+P3A ingestion evidence
+======================
+
+timestamp: 2026-10-24T21:32:37+05:30
+git_root: C:/Users/LOUJAN B/HallX
+git_head: a88e484489bbae989c59d28a4ac31baa079188ff
+worktree: no tracked modifications; new files only under
+  Project/src/hallx/ingestion/,
+  Project/tests/support_ingestion.py,
+  Project/tests/unit/test_ingestion.py,
+  Project/reports/evidence/p3/ingestion/
+environment: Windows PowerShell 5.1, Python 3.11.9, pydantic 2.14.1, ruff 0.16.0
+gpu: none used
+network: none used
+
+acceptance 1
+------------
+command: uv run pytest tests/unit -q -k "ingestion or source_map"
+exit: 0
+output:
+...........................                                              [100%]
+27 passed, 73 deselected in 1.79s
+log: pytest.txt
+
+acceptance 2
+------------
+command: uv run ruff check src/hallx/ingestion tests/unit/test_ingestion.py tests/support_ingestion.py
+exit: 0
+output:
+All checks passed!
+log: ruff.txt
+
+supplemental
+------------
+command: uv run pytest tests/unit -q
+exit: 0
+output:
+........................................................................ [ 72%]
+............................                                             [100%]
+100 passed in 9.39s
+log: pytest_full_unit.txt
+
+notes
+-----
+- No verified PDF text/page extractor is available; PDF paths fail closed with
+  ErrorCode.SOURCE_MAP_UNSUPPORTED.
+- Text/Markdown chunks carry no page numbers; pages are never synthesized.
+- Chunk IDs are sha256(doc_id NUL version_id NUL chunk_index NUL canonical_text).
+- overlap_chars is an upper bound; at least one new canonical character is
+  required per chunk, so oversized overlap cannot stall progress.
